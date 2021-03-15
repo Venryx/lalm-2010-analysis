@@ -1,6 +1,6 @@
 The numbered files above show each step of the translation process.
 
-There are many steps, because human-translation is expensive, so I tried to use machine-translation (with manual grammatical refinement) where possible, to then be merged with the parts that required human translation.
+There are many steps, because human-translation is expensive, so I tried to use machine-translation where possible (with manual grammar fixes then added), to then be merged with the parts that required human translation.
 
 This sentence-marking -> splitting -> sentence-matching -> merging process is a bit complex, hence all the steps.
 
