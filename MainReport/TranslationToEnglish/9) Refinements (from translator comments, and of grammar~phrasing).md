@@ -148,7 +148,7 @@ In another case, a brass candlestick fell over with a strikingly loud bang when 
 
 **Brush on string** Several people suddenly found a small paintbrush hanging from a thin, smooth cotton string, connected to a light fixture in one of the rooms (see picture). It was taken down but found hanging in the same position shortly after. Several attempts to attach it like it was found failed (too smooth of a string; too soft of an attachment point on the paintbrush for the string). The suspension can bring to memory the phenomenon with the mobile phone on the jacket, and similar events mentioned above.
 
-Image C. Brush on string
+Image C. Brush on string  
 ![](./Images/C_BrushOnString.png)  
 Text in image:
 ```
