@@ -29,7 +29,7 @@ Using the above scheme, here are the links for viewing the original PDF, and the
 
 ### Steps to produce the final pdf and html files
 
-1) Open the "Final.<span/>md" file in Visual Studio Code.
+1) Open the "Final.<area>md" file in Visual Studio Code.
 2) Install the "Markdown PDF" extension. (v1.4.4 at time of initial PDF generation)
 3) Export to the Final.pdf file, by running the (just added) VSCode command: "Markdown PDF: Export (pdf)"  
 4) Export to the Final.html file, by running the VSCode command: "Markdown PDF: Export (html)"
