@@ -4,6 +4,15 @@ Part of the reason there are so many steps, is that human-translation is expensi
 
 This sentence-marking -> splitting -> sentence-matching -> merging process (along with refinements during the process) ended up requiring several steps; the incremental outputs of these steps are stored within the numbered files. (you can use a tool like [TortoiseGitMerge](https://github.com/Venryx/TortoiseGitMerge_Standalone) to easily compare the contents of any two files)
 
+# Viewing
+
+To view an HTML or PDF file in its "rendered" form, add its filename to the end of this url: `https://venryx.github.io/lalm-2010-analysis/MainReport/TranslationToEnglish/`
+
+Using the above scheme, here are the links for viewing the original PDF, and the final translated HTML/PDF files:
+* https://venryx.github.io/lalm-2010-analysis/MainReport/TranslationToEnglish/1%29%20Orig%20document.pdf
+* https://venryx.github.io/lalm-2010-analysis/MainReport/TranslationToEnglish/Final.pdf
+* https://venryx.github.io/lalm-2010-analysis/MainReport/TranslationToEnglish/Final.html
+
 # Helpers
 
 ### Steps to extract "backtick-marked text" from a file (eg. deriving 7.1 from 7.0)
