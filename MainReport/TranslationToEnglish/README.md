@@ -9,7 +9,7 @@ This sentence-marking -> splitting -> sentence-matching -> merging process (alon
 To view an HTML or PDF file in its "rendered" form, add its filename to the end of this url: `https://venryx.github.io/lalm-2010-analysis/MainReport/TranslationToEnglish/`
 
 Using the above scheme, here are the links for viewing the original PDF, and the final translated HTML/PDF files:
-* https://venryx.github.io/lalm-2010-analysis/MainReport/TranslationToEnglish/1%29%20Orig%20document.pdf
+* https://venryx.github.io/lalm-2010-analysis/MainReport/TranslationToEnglish/1.0%29%20Orig%20document.pdf
 * https://venryx.github.io/lalm-2010-analysis/MainReport/TranslationToEnglish/Final.pdf
 * https://venryx.github.io/lalm-2010-analysis/MainReport/TranslationToEnglish/Final.html
 
