@@ -20,7 +20,7 @@ This sentence-marking -> splitting -> sentence-matching -> merging process (alon
 
 ### Steps to produce the final pdf and html files
 
-1) Open the "10) Final.<span/>md" file in Visual Studio Code.
+1) Open the "Final.<span/>md" file in Visual Studio Code.
 2) Install the "Markdown PDF" extension. (v1.4.4 at time of initial PDF generation)
 3) Export to the Final.pdf file, by running the (just added) VSCode command: "Markdown PDF: Export (pdf)"  
 4) Export to the Final.html file, by running the VSCode command: "Markdown PDF: Export (html)"
@@ -29,4 +29,4 @@ Optionally: (for setting the PDF document's title)
 
 5) Download/install exiftool: https://exiftool.org
 6) For Windows: Open/extract the zip file, and move the "exiftool(-k).exe" file to a suitable location, renaming it to just `exiftool.exe`.
-7) Run the following in a terminal: `"exiftool" -title="Lalm kindergarten: Overview and assessment of unusual events from 26 April to 15 June 2010" "10) Final.pdf" -overwrite_original` (if either `exiftool` or the pdf file cannot be located by the terminal, use their full paths in the command string)
+7) Run the following in a terminal: `"exiftool" -title="Lalm kindergarten: Overview and assessment of unusual events from 26 April to 15 June 2010" "Final.pdf" -overwrite_original` (if either `exiftool` or the pdf file cannot be located by the terminal, use their full paths in the command string)
