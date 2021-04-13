@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>10) Final.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<script>
+// set the document's title (this shows up as the window/tab text, when exported as an HTML file and opened in the browser)
+document.title = "Lalm kindergarten: Overview and assessment of unusual events from 26 April to 15 June 2010";
+</script>
+<style>
+/* remove header on first page */
+@page:first {
+	margin-top: 0;
+	/*margin-bottom: 150px;*/
+	/*margin-bottom: 30px;*/
+	margin-bottom: 100px;
+}
+</style>
+<div style="height: 300px;"></div>
+<h3 style="width: 400px; margin: 0 auto; text-align: center;"><b>Lalm kindergarten: Overview and assessment of unusual events from 26 April to 15 June 2010</b></h3>
+<div style="margin-top: 10px; text-align: center;">Author: Prof. Kjell Flekkøy</div>  
+<div style="text-align: center;">Translator: Cia Severinsen</div>  
+<div style="text-align: center;">Written (Norwegian): Oct. 2010</div>  
+<div style="text-align: center;">Translated (English): Apr. 2021</div>  
+<div style="height: 300px;"></div>
+<div class="page"></div><!-- page break -->
+<p><strong>Introduction</strong></p>
+<p>Lalm kindergarten was completed and presented as a modern kindergarten in October 2008, after the reconstruction of the previous kindergarten, placed in the same building from 1989. The relevant kindergarten (Department Kindergarten) is connected to and part of Lalm Upbringing Center. The school part of Lalm Upbringing Center was completed in 1970. Before this, there was no known use of the site. The layout is functional, light and airy; good in use. In the current period, the kindergarten had up to 30 children aged 1<sup>1/2</sup>-5 years and 15 employees (17-57 years); one man, the rest women.</p>
+<p>The size of the building is 287 m<sup>2</sup> in a construction built on concrete. Its heating is provided by water running through pipe loops placed in the floor, with the top layer covered in linoleum (linseed oil, resin, and cork on hessian fabric). The walls on the kindergarten and personnel department are made of wood, or painted plasterboards. No high voltage cables are under or in the building. Waterways in the ground were not specifically examined and are not known. There are no high voltage lines, transformers or high-voltage cables within at least about 80 m. Distance to the nearest mobile transmitter (base station) is 1.5-2 km as the crow flies; to the nearest TV transmitter, over 10 km. In the attic is located a central fresh air system with a fan and electric motor. There are guides above the flat ceiling for fresh air and lighting. The technical department in the municipality has gone through the building without finding construction, technical, or other defects and deficiencies.</p>
+<p>Image A. Picture of Lalm kindergarten. Photo by Rune Grindstuen.<br>
+<img src="./Images/A_PictureOfLalmKindergarten.png" width="100%" style="max-width: 800px;"/></p>
+<div class="page"></div><!-- page break -->
+<p><strong>Problem statement</strong></p>
+<p>Employees of Lalm Upbringing Center, children and employees of Lalm Kindergarten, relatives of these people, representatives from Våga county and others registered a series of unknown and inexplicable happenings in Lalm Kindergarten and the connected personnel department during the period of 26th April to 15th June 2010. They, and the management department of Våga county, are interested in having the incidents registered, classified by content and form, and understood relative to scientific knowledge. The undersigned have been given a mandate to carry out the collection of relevant information and evaluate it for this purpose. Through this, phenomena of this type could in the long run also be made available for research.</p>
+<p><strong>Note</strong></p>
+<p>Acknowledgment: Many thanks to Vågå municipality and the staff at Lalm Upbringing Center for cooperation during the collection of the data material. Professor Eirik Grude Flekkøy, from the Department of Physics at the University of Oslo, is to be gracefully thanked for his contribution to the physics part of the discussion.</p>
+<p><strong>Method</strong></p>
+<p>The person responsible for the current report came into the picture immediately after the phenomena had ceased on June 15. Personal interviews from June 26 to mid-July were conducted with everyone centrally involved: the employees in Lalm Upbringing Center (5-6 people), two involved staff in the Church of Norway, two &quot;clairvoyants&quot; (including the one who was associated with the cessation of the events), a husband of one of the employees, and a male parent of one of the children. No children were interviewed and no names will be mentioned of the adults. Everyone among the kindergarten staff experienced incidents of the kind reported, but with variation in scope and content over persons and time. During the time of interviews and the period after, until September, a number of conversations and meetings have been held with individuals, groups of employees, and representatives from Våga county's management. Information provided by most of the individuals was controlled against the accounts of others present in the same situation. Where interviewers are unsure whether a piece of information is correctly understood in detail, doubts are clarified through new contact with the person or persons in question. Key events, referenced below, are all taken first-hand from those who experienced them. Significantly, almost all incidents have been observed by at least two people; often in groups of three and up to 20 people.</p>
+<p>There was also a meeting with the staff to discuss a first draft of the report. And lastly, the final report has been assured for correct reporting and understanding of the information through its having been reviewed by the manager for the kindergarten and Lalm Upbringing Center.</p>
+<p>The report is also based on photographic material with written reporting of over 90 observations by the kindergarten manager, recorded during the activity period and immediately after this. The accounts being recorded just after the incidents happened make the reports less affected by memory shift. The pictures were taken by the kindergarten staff along the way, and a small selection is presented below. An extensive review has been done of older and newer literature of relevance to the Lalm observations, and for a biological and physical understanding of the phenomena.</p>
+<p>The one responsible for the current report is professor emeritus of Psychology at the University of Oslo and its associated hospital (Oslo Hospital) — with a specialty in the field of neuropsychology (brain and behaviour relations). In addition to research, several years of clinical work has provided a basis for distinguishing between diagnoses and conditions of psychiatric, neurological, and age-related nature. He has no financial or formal ties to persons at Lalm Upbringing Center, Lalm Kindergarten, or Vågå municipality.</p>
+<p>In the following, I'll discuss the basis for confidence in the data, even if this thematically belongs in the discussion section. The reason is this: the phenomena portrayed are so unusual and little understood that the reader will be reluctant to take them seriously, as is the case with this report. Therefore it is necessary to evaluate the basis for confidence in the data as a first step.</p>
+<p><strong>Trust in the data material.</strong> The data material in this incident is derived from observations by employees and the families of employees at Lalm kindergarten and school, Lalm Upbringing Center, and additionally by employees of the administration of Våga county. There are six alternative interpretations of these observations; a) children's games/shenanigans, b) lies, c) psychosis, d) delusion/mass suggestion, e) tricks and nonsense, f) the incidents are physically real. We will have a look at each alternative later on, but focus on the general first.</p>
+<p>It is important to take a stance on these alternatives. The nature of the phenomena reported below tends to invite explaining away rather than being explained. &quot;You can't believe in this sort of thing,&quot; and &quot;this sort of&quot; phenomenon usually means one that is not recognized as physically real and potentially accessible to understanding based on the standard model of knowledge. People are apt to forget that what is real can only be distinguished from what is not real after examination and clarification of the nature of the phenomenon. New phenomena must be met with relevant knowledge. If it is beyond the standard model of knowledge, one must, at the very least, seek to clarify the form and substance of this novelty, and the situations in which it arises. This information must be probed in relation to available, relevant knowledge. It is only possible to assess whether one can or should proceed after such probing. This must also apply to the Lalm observations in order to be able to have confidence in the observations as sources of knowledge. Any other approach is fundamentally unscientific and results in entrenching existing knowledge while dismissing new knowledge. Our history of knowledge condemns people who did not want to see mountain ranges on the moon in Galileo Galilei's telescope — such as representatives of the church in his day. Currently: We know that much still remains to be understood about the world in us and around us. Lalm phenomena belong among what is scientifically new and unknown.</p>
+<p>One implication of this is that the observations must be referenced unselected and in great detail, where it is possible, else one would risk losing information. Only knowledge will help to distinguish the material from the immaterial. The premise is that we can trust the personal reports. Unfortunately, it never reached the point where these could be substantiated by technical observations.</p>
+<p><strong>Children's games/shenanigans.</strong> This is a kindergarten. What would one expect other than chaos? Children throw things. Yes, they do, but here there are many observations of incidents happening when the children were outside. Furthermore, it was quickly discovered that several of the incidents could not have been created by children. They are too practically difficult for them. The acts of the children were considered, especially in the beginning, and controlled for; then excluded (chalk was found in several places, with the children's hands and pockets checked immediately without any sign of chalk; plastic beads fell from under a table while all children and adults nearby had their hand placed on the table). Games/shenanigans cannot be the main explanation of the Lalm phenomena.</p>
+<p><strong>Lies.</strong> That everyone lied; they would have to, considering how many people are in agreement. Even if this were the case, what would their motive be, and why now — not earlier or later? The situation had a negative influence on everyone involved. They thought through making their story accessible to the public several times. They would have had to be motivated to lie, as well as the relatives who visited the building and experienced the phenomena themselves. The representatives of the county who reported incidents of the same nature would also have had to participate in the lie. Also those who, now and in the past, have written about similar incidents in other countries and cultures — over long periods of time — would be lying. This is not likely; in fact, so unlikely that we will not discuss it further. We may do the same with the next alternative.</p>
+<p><strong>Psychosis.</strong> Psychosis does not involve the movement of objects in front of many people. Objects require physical energy to be moved.</p>
+<p><strong>Delusion/mass suggestion.</strong> This is unlikely as well, since people quickly became 'threatened' when they themselves observed the incidents contrary to their expectations. Also, mass suggestion does not explain the movement of objects.</p>
+<p><strong>Tricks and nonsense.</strong> One or a few people could have brought about the first &quot;performances&quot;. This was also the general interpretation in the beginning. However, it quickly became deemed as too unlikely by everyone; there were too many people watching each other. There were too many overlaps in the stories. Seemingly, it would have been impossible for one or a few people to go around throwing things for 1-2 months without anybody noticing it. Additionally, incidents that could not have been caused by an individual happened from early on. Individual incidents as well as the totality of all incidents cannot be interpreted as a technical construction. The phenomena are too complicated, with the observations occurring simultaneously, independently of one another, over time by too many people with different, but similar interpretations. The kindergarten was also in full operation the entire time, with children and adults around each other. A motivation would be difficult to find here as well. In addition: One does not see a fixed pattern of person or persons connected to the phenomena; neither in form, contents, or scope, as one would have expected.</p>
+<p><strong>The events in which several people were present were physically real.</strong> This option is apparent as the most likely. Movement of objects in different situations over a period of time of 1<sup>1/2</sup> months in the presence of differently composed groups of people, meets reasonable requirements of objectivity and trust that what has been reported has happened. Connected phenomena fall within the same category. This applies to sound and movement patterns of objects, course of events (eg. removal of a bell that is immediately found), experience of cold, discomfort, skin affection, tremors and odor experiences. These cases as well, have been observed by several people; what they experienced contradicted what they expected. Alternatively, one could argue that phenomena beyond proven changes of objects' position is 'subjective', and hence belong in a 'mental' world, affected by the person's uncontrolled processes and causing a lack of confidence in validity as a result. Claiming this can be done, but not without a certain burden of argument. Several people heard the sounds that occurred at the same time; several people saw the tremors, several people experienced touches to the skin and at the same time a feeling of discomfort. The arguing would also, despite his lack of good-will, have to come to grips with the fundamental and relevant fact that all observations, including the installation of physical recording equipment and the reading of these, depends on what we call our subjective experience and our consciousness.</p>
+<p><strong>Selection.</strong> The events over the 1<sup>1/2</sup> months that they lasted are presented to a significant extent and detail, where such are available. Of individual events, there are far more than presented here (over 90). All kinds of events or phenomena are nevertheless dealt with to the best of our ability, either in the form of general discussion or through the presentation of the event or the events in a certain detail. The experiences that are seemingly the most informative have been given the most details. This reflects a certain theoretical framework, which can unfortunately 'refine' the story in a particular way. Nevertheless, this kind of delimitation is hard to avoid for practical reasons. It is also positive and natural that one looks for causal understanding where such is cognizably possible. The events or phenomena which to a particular degree appear to be incomprehensible are nevertheless not kept out. The reader can be judge of the 'visions', for example. This category will also include the cessation of phenomena which was connected to the &quot;clairvoyant&quot; presence in the kindergarten. Omitting such events would express distrust in the observers, and a confidence in current knowledge as being sufficient for exclusion of what we do not yet have scientific coverage of, given the form and content of the relevant observations.</p>
+<p><strong>Concepts.</strong> In the following, &quot;throw&quot; will be used to mean &quot;movement of an object with the speed, direction and change of trajectory one usually sees when throwing&quot; — an instance of literal throwing is not implied by this. &quot;Supernatural&quot; will not be used, because this term is about as meaningful as &quot;subnatural&quot;. &quot;Unknown&quot; or &quot;misunderstood&quot; is better in this context. &quot;Mental&quot; is also not part of the vocabulary, because the mental factor is pervasive for all observations. The same goes for &quot;parapsychic&quot;. In the more cause-oriented discussion at the end of the report, &quot;mental&quot; or &quot;psychic mechanisms&quot; are not used to understand causation. This was done because the physical and direct sensory form of the observations involve primarily a physical form of understanding. Double parentheses (()) are used in direct quotations to display inserted remarks from the undersigned's side.</p>
+<p><strong>Result</strong></p>
+<p><strong>Emergence and overall course of phenomena</strong></p>
+<p>One does not know of any changes in the staff group or other matters that are related in time to the emergence of the phenomena. The events in question appear to have occurred abruptly on the 26th of April (below), although during the autumn of 2009 and early 2010, the staff points to two nonunderstood episodes: Four to five ordinary balloons of different colors were found inflated in the Doll corner in the morning, on two occasions, tightly placed; unknown to the children, staff, and laundry assistant. The staff were confident that such large objects would have been noticed the night before, had they been there. After that, no new events appeared before the phenomenon debut.</p>
+<p>The first incident on April 26th seems to have been simple figures on doors (&quot;half swastika&quot;; approximately 30-40 cm long). Then came plastic beads, about 1 cm long, which fell down in the presence of children and adults. Afterwards, simple drawings of sack-shaped figures appeared on doors; small figures made of feathers, paper flowers, etc. (see picture) with development further to small objects being observed flying in the air. The following was cited from the written material as one of the first events: &quot;Monday, 26th April 2012, NN and NN sat in the art room at Goliat [a branch of rooms in the kindergarten]. Suddenly, beads started to sprinkle around them at the table. These were beads that were originally stored in a box with a lid, standing on a tall shelf in the storage room at Goliat.&quot; The 'beads' are of the type described above.</p>
+<p>Initially, the phenomena were limited to two or three of the staff; all in full health.</p>
+<p>No distinct patterns emerged over time when it came to covariation between phenomena — shapes and frequency — and persons, rooms in the house, time of day, days of the week, or observer conditions whether inside or outside the house. In all rooms in the house, phenomena emerged of one or more different kinds. There are three exceptions to the basic rule above. Throughout the time, 5-6 of the staff were more often in contact with phenomena than the others. Nevertheless, everyone made observations of events over time. The second exception: Three of the staff were registered as having a dampening effect on the frequency and intensity of the events — with their presence in a room, nothing happened in many cases. The third is a development over time: The incidents gradually began occurring with greater strength — stronger sound, more and heavier objects being thrown, subjective feeling of discomfort associated with the events became more pronounced. This development seems to have persisted until the events abruptly ceased after the visitation of a &quot;clairvoyant&quot;. Along the way, a representative of the Church [Provost Paul Skuland from Nord-Gudbrandsdal] sought to influence the events through rituals. With inspection of the house in this context, sounds and incidents (throwing of objects, doors being closed with loud noise) became especially frequent and strong. During the first few days following, it appeared to have become somewhat more quiet, before the incidents came back with even greater force than before.</p>
+<p>Hallucinations. It is part of the context that employees who had worked in the previous Kindergarten also reported experiencing the presence and visual impression of a male person on a number of occasions over a long period of time.</p>
+<p><strong>Forms of events</strong></p>
+<ol>
+<li>
+<p>Movement of objects in the form of them being thrown, or removed and returned after some time (in most cases); controlled movements, making of patterns and more. In most cases the objects appear to be coming out of thin air; sometimes from ceiling height. The starting point for such movements was seen in two cases: A small lightbulb used on a Christmas tree, and a non-stop [small, colored piece of chocolate, like an M&amp;M] (see below). Movement in the form of throwing is the most common of all the events.</p>
+<p>The objects have been made from wood, glass, plastic, metal, minerals, cloth, paper and combinations of materials (non-stop; mobile phone), and varying in size; everything from small magnets, toy hammers, beads, paper flowers and feathers, pliers and rocks of smaller size.</p>
+</li>
+<li>
+<p>Influence of objects (controlled manipulation) — bottle that &quot;dances&quot;, water in bottle at room temperature that bubbles when passing two people, new, unused program set on washing machine, windows and doors that are opened (and resist closure) as repeating incidents, etc.</p>
+</li>
+<li>
+<p>Direct contact between manipulated objects and persons, sometimes in a controlled manner (magnet that changes trajectory and strikes the shoulder, etc.).</p>
+</li>
+<li>
+<p>Experience of strong, uncharacteristic discomfort; sometimes a sense of horror. With those who notice this best, the condition occurs in advance of throwing objects (&quot;Something is going to happen right now&quot;). The strong discomfort passes relatively quickly after the activity is ceased.</p>
+</li>
+<li>
+<p>Feeling of heaviness in the head, sometimes headaches.</p>
+</li>
+<li>
+<p>Strong feeling of cold, sometimes confined to parts of the body. Most likely the symptoms in points 5 and 6 are related to the same cause; however, direct correlation between the two cannot be detected.</p>
+</li>
+<li>
+<p>Effect on skin on exposed areas — face, hands and arms.</p>
+</li>
+<li>
+<p>Odor experiences of an unpleasant nature (eg. vinegar, ammonia, &quot;cat pee&quot;, the smell of rot), which are short-lived (minutes) and unexpected for the time and place, and with variation in odor experience over the persons present. Not everyone necessarily smells the odor in its whole.</p>
+</li>
+<li>
+<p>Noises. Crackling and weak scratching, localized in one room; loud sounds/noise in or near the wall in a room (several people present); strong growling sound experienced in a third location (one person present).</p>
+</li>
+<li>
+<p>Complex situations (making of patterns; locking of play sheds; sudden appearance of a box containing toys on the loft; removal of a bell; objects becoming lost only to be found in easily visible places which have already been searched, etc.)</p>
+</li>
+</ol>
+<p><strong>Events</strong></p>
+<p><strong>Movement of objects</strong></p>
+<p><em>Overall features</em></p>
+<p>a. Smaller objects suddenly appear without a sound 'like out of the air' at eye-height, eventually at ceiling height, and hit the ground, always with a louder than usual sound, but with an otherwise normal character of sound. Where starting-points are located [it appears that] the movements have a very abrupt start with an 'explosive' character; the object whips away. Especially initially, the items concerned were mostly small and lightweight (a toy hammer, keys, blackboard magnets, etc.; see attached images); later also larger objects. In most cases, sounds were not noticed beforehand, but see below. Multiple people noticed increasing discomfort (pressure in the head; feeling of discomfort) seconds in advance; one person started to have tremors in the arms. The vast majority of objects can be found inside the kindergarten or just outside, but with some exceptions (old screw; old forged nails).</p>
+<p>b. Another special feature is that the objects abruptly stop after the impact. The unexpected abrupt stop occurs regardless of the material of the object and substrate (metal; wood; plastic) and smooth or rough surface.</p>
+<p>c. Breakable objects made of glass or ceramics do not smash into pieces as opposed to our usual experience with such items (cups, jars). When hitting the walls no marks are made despite what would be expected based on the item's weight, shape, speed and direction (eg. a glue stick). On one specific occasion a jar of jam with a screw cap of metal was broken into very small fragments after hitting the wall — but without leaving any mark on the wall. In this case, the wall was painted plaster; in the other cases both plaster and wood.</p>
+<p>d. About halfway through the overall course of events, employees notice thrown objects which, regardless of material, are heated; ie. slightly warmer than hand temperature. Objects are not hot in advance, and the heat passes after a few minutes.</p>
+<p>e. Individuals are considered by others to have a calming effect on the extent of the phenomena.</p>
+<p>Image B. Selection of objects observed to be thrown<br>
+<img src="./Images/B_ThrownObjects.png" width="100%" style="max-width: 800px;"/><br>
+Text in image:</p>
+<pre class="hljs"><code><div>SELECTION OF OBJECTS OBSERVED TO BE THROWN
+</div></code></pre>
+<p><strong>Movements with sound at the starting point.</strong> It is cited from a male relative of one of the employees — the only report of sound localized to the base of the object: &quot;Right after we [he and two others] had entered the eastern part of the kindergarten's living room, we heard a kind of snap from the ceiling. Then appeared a felt-tip pen of the sort we usually call a marker. It came at high speed from the ceiling and landed in a window facing south. The marker landed on the windowsill, and stopped as if had landed in glue. There it lay motionless. I picked it up and put it in my pocket...&quot; — After about two minutes in the room, they hear again the same sound from the ceiling, and a small light bulb lands in front of their feet (light bulb not used for lighting). Along with the light bulb lands a small rock (the size of a nail used for wall-paintings). He picks up the objects, and feels that the light bulb is hot, &quot;...as if it were recently turned off!!&quot; In the same room, after a short time: The same sound is heard, and a plastic cover lands with a certain sliding motion along the floor. In the western part of the kindergarten: &quot;In the same moment as we [he and the two others] entered this room, the sound came from the ceiling. Then there appeared a rock at head height that landed right before our feet. The rock had the size of the fist of a 3-4 year-old. The rock stopped right after it had landed. In the meantime another of the parents had arrived who also saw the event.&quot; (No comment was made about temperature.) Finally the same night: The same sound from the ceiling, and — seen by several people — a (toy) log appears from the ceiling, and lands with an abrupt stop.</p>
+<p>It should be mentioned that the concerned relative had initially been markedly critical of the veracity of the personnel's observations — as had most of the other men. This was rapidly and lastingly changed after the self-observation. With a background in carpentry, the male relative was also unable to understand the first object's abrupt stop against the smooth wood surface of the window frame. A female employee registered one occasion where, for a &quot;very short&quot; time, a &quot;shadow&quot; was present approximately 2m up in the air. Afterwards, 10 plastic beads immediately appeared, each approximately 1cm in diameter, and landed on the floor with a &quot;violent bang&quot;. Several people were present.</p>
+<p><strong>Movements without sound.</strong> There were one, maybe two exceptions to the loud sound reported on impact. On one occasion, two employees are walking in the area outside of the house and look through the window; they observe a rock slide at high speed along the floor in the room. It comes from another room and passes straight past one of the other employees, who walks through the observed room, but still has not reached the area where the rock seems to have come from. This person does not report having heard sounds coming from the rock at all; not to have seen it moving (the person may have been looking in another direction) — normal hearing, normal vision. There were no sounds in or outside the house that could have masked sound from the rock; all children and adults were out of the house. The reconstruction immediately afterwards showed that the rock made a lot of noise passing along the floor as the two observers saw it do. The sound should have been impossible not to hear, if it had slid along the floor as it appeared to. In another case; written material: &quot;A toy car crashed into the floor in the art room at Goliat. It looked as though not everyone heard the sound&quot;. – The rock is a kind one finds outside the house.</p>
+<p><strong>Movement with observed starting point, but without associated sound.</strong> The starting point was observed in two cases. <strong>Lightbulb.</strong> In one case, a small lightbulb used on a Christmas tree was seen lifting itself up from a basket standing on a free-standing kitchen counter (&quot;the island&quot;) and falling to the floor 1-2 meters away with an unnaturally loud sound, and a zigzag movement when it landed. No rotation or other significant conditions registered originally. The observer interpreted the total movement as something slow and controlled. The path towards the impact, but not the starting point, was observed by several people in a group consisting of 20 people present. <strong>Non-stop.</strong> In the other case, three of the personnel are sitting by a small wooden table with cupcakes; the closest one approximately three-fourths of a meter away. While everyone was watching closely, one of the two non-stops [ie. M&amp;Ms] was seen abruptly disappearing from one of the cupcakes, and landing with a loud bang nearby. Several small magnets landed with a loud bang on the floor nearby immediately afterward. There were no marks in the frosting besides the mark from the removed non-stop. In a third case, the starting position of all incidents was limited to one area. Children sat around the table; plastic beads fell towards the floor — and continued to do so, from underneath the table after the children had put their hands on top of the table.</p>
+<p><strong>Rounding of corners.</strong> On several occasions, objects have been transported from one room to another (storage room, etc.) with locked doors and windows — and with winding paths along the way. A cup, which several people knew to be located in the adjoining room immediately in advance, came through an open door around the corner that the door represents in relation to the base point (removal of the object from the base point was not observed), and struck against the floor. In another case, the incident implies that the movement started on a wall shelf in a corridor, went out from the wall, moved across the corridor for several meters, and in through a wall again — a movement with several windings to the path.</p>
+<p><strong>Direct contact.</strong> In one case, a small whiteboard magnet is seen by two coming towards the person, but at the last minute changing course and striking against one's shoulder.
+— During a meeting with many present, an employee asks to be allowed to change places: She experienced a finger touching her neck several times. Others see a red mark there. The phenomenon ceases when changing seats.
+— Two of the employees are in the warehouse. On the wall hangs a large ball. Both are standing bent over, searching for something. They suddenly notice a movement in their peripheral field of view, and both experience immediately afterward getting a strong pressure in the back, of what they think is the ball. They would have fallen, had the room been a little bigger. The ball is seen hanging as before when they turn.
+— Two employees and their partners (four people) leave the kindergarten in the evening after a meeting. Previously, there had been great activity with throwing and loud noises inside the house. As they walk along the house wall, they see and hear gravel and pebbles land against the wall from the outside. They open and close a small gate; while talking together, two people hear a squeak from the gate (known sound), and smaller rocks land on the back of one of the women. This person is facing away from the gate, while the other three are facing it to varying degrees. Nobody noticed anything coming. The hit was not significantly hard but was interpreted as only weakened by the clothes in between. This is of interest in terms of the mechanisms underlying the movement of the rock. Immediately after, a sound of gravel which they interpret as being thrown towards one of the cars is heard. Generally: no kids are known for being physically affected by objects.</p>
+<p><strong>Position effect.</strong> In one incident, two people's placement in the kitchen in Lalm Upbringing Center (not Department Kindergarten) had an effect of the throwing of objects. One of these works at Lalm Upbringing Center, the other at Department Kindergarten. With a starting point in a delimited area near the middle of the room — estimated at about one meter in diameter — movement of the body by only a few centimeters (approximately 10 cm, apparently) towards one side of the room was immediately followed by objects appearing at eye-level to the person's right, passing and landing with an abrupt stop and loud bang in a limited area further ahead. The objects were for example a dispenser key, a forged nail, a small metal ball, a used, old screw — the forged nail was not known from the nursery; the metal ball was otherwise placed in a locked room on the other side of the corridor. Further details: The kitchen was in use this evening for a graduation party; meaning, it was separated into two parts, divided by a wooden wall sticking out into the room as a kind of middle line. The &quot;affected area&quot; was in-line away from this half wall. Movement towards the activity part of the kitchen was connected to throwing; movement backwards and/or toward the other side was seemingly without this effect. The position effect was accidentally discovered by one person. This person asked for replacement, with the same effect occurring for the next person. Six to eight people came and went during the approximately 30 minutes the events lasted, and the majority of them observed the phenomenon.</p>
+<p><strong>Transient change of material characteristics</strong></p>
+<p>Two jackets belonging to the same owner were found, raised up against the wall (wooden wall; jackets of a thin and soft material — polyester and nylon). Only &quot;a few centimeters of the arms and bottom line of the jackets were laying on the floor&quot;. One of them was hung back up by the owner — the other was used by her in work right after. When the person returned, the jacket that had been left behind was standing up against the wall like before. Hanging outside of the smooth clothing, her phone was found with the display against the fabric. No fastener between the phone and jacket; no attachment or connection visible or noticeable between the wall and jacket. This also applied to the other of the two jackets that were first found. Thorough interrogation by the author gave no indication of a feeling of resistance to removal of the phone or jackets from wall. For example, the phone seemed to hang loosely on the outside of the jacket when removed. No glue was noticed; there were no marks on the jacket. However, &quot;the display was dirty, as if someone had licked it&quot;. No attempts of reattaching the phone to the jacket were made; nor for the jacket and wall. No noises or extra heat were registered associated with the phenomena. The phone had been gone for five hours earlier that day. Attempt at reconstruction showed that it was impossible to recreate the positions of the jackets and the phone, given the smooth wall surface and smooth, soft fabric; a smooth surface against smooth fabric. Two people observed the jacket and phone line-up.</p>
+<p>With another person, a smooth and clean piece of wood, approximately 10 x 1 cm, was observed landing with a loud bang against a jacket made of nylon fabric — one of the children's — and stayed hanging on a clear and clean area of the fabric. Two to three people observed this. No heat was connected to the objects; no resistance when removing it. – A sandal belonging to one of the kids was found hanging on a children's jacket in the wardrobe. No resistance when removing it; smooth, clean surfaces against each other here as well.</p>
+<p><strong>Local influence</strong></p>
+<p><strong>&quot;Dancing bottle&quot; and more.</strong> A plastic bottle half full of cleaning alcohol started abruptly rotating around its own axis, rotating in place with rapid movement, without falling to the ground. As cited from the observer's report: &quot;I was the only one who saw that bottle on the kitchen island. I came in from the wardrobe (Goliat), and rounded the corner to the kitchen. The closest adults were located at the far end of the great room (Goliat), ie. 8-10 meters away. All the children were out. There were no bubbles in the bottle. It stood right on the edge (the corner), and spun around its own axis. It should not really have continued to spin; it should have fallen to the floor. I reached for it, and it finally stopped spinning after a few seconds. The bottle contained alcohol, for washing hands with. It's the only case where the bottle spin happened.&quot; The island is a free-standing bench in the middle of the kitchen.</p>
+<p>In another case, a brass candlestick fell over with a strikingly loud bang when two people walked by, with a good distance to the bench it stood on. – Doors offer unexpected resistance when being closed, significant but passing (minutes); a door is shut with violent noise — in all cases in the absence of air draft and people.</p>
+<p><strong>Bottle bubbling.</strong> A plastic bottle with water at room temperature stands still on a shelf in the kitchen. Two employees (including the one who saw the &quot;dancing bottle&quot;) passed by at a short distance — maybe only a meter, or less — and registered the abrupt formation of bubbles in the water. This was not the case before passing, and the bubbles ceased immediately after passing. They did not examine the temperature of the water or bottle.</p>
+<div class="page"></div><!-- page break -->
+<p><strong>Brush on string.</strong> Several people suddenly found a small paintbrush hanging from a thin, smooth cotton string, connected to a light fixture in one of the rooms (see picture). It was taken down but found hanging in the same position shortly after. Several attempts to attach it like it was found failed (too smooth of a string; too soft of an attachment point on the paintbrush for the string). The suspension can bring to memory the phenomenon with the mobile phone on the jacket, and similar events mentioned above.</p>
+<p>Image C. Brush on string<br>
+<img src="./Images/C_BrushOnString.png" width="95%" style="max-width: 800px;"/></p>
+<div class="page"></div><!-- page break -->
+<p>Text in image:</p>
+<pre class="hljs"><code><div>BRUSH FOUND HANGING FROM CORD
+
+Reproduction failed
+</div></code></pre>
+<p><strong>Electronic and electrical phenomena</strong></p>
+<p>Three calls were made to a person's phone during the time the owner was not able to find it (not the same one as mentioned above); three images from one day's capturing of moving objects were not to be found in the electronic camera the day after. One does not know where the fault lies — during storage, preservation along the way, or during retrieval. A movement indicator located in a hall in the Kindergarten (visible light) was activated after closing time. It is possible that individual(s) could be the cause. During the closing of the Kindergarten at night, after everyone had left, a light in one of the rooms was turned on twice [on -&gt; off -&gt; on] after the Kindergarten had been closed. One person observed this. The observation is trusted by other employees and the undersigned.</p>
+<p><strong>Effect on persons</strong></p>
+<p><strong>Headache; feeling of pressure.</strong> From early on and during the period of the incidents, there were employees — the individuals varied — that were bothered by feelings of pressure/heaviness to the head; often headaches as well. This effect was worst on the days with the greatest activity, and worst for the person, or people, who were most involved. People with a history of headaches noticed that the symptoms were still similar to those before, but stronger. Headaches and heaviness of the head is by far the most common of the subjective ailments.</p>
+<p><strong>Feeling uneasy; strong discomfort.</strong> These were also common experiences, with variety and connections like the above. The feeling of discomfort was highly unpleasant and appeared not to be coincidental with other experiences of equivalent nature that the person may have had. A characteristic example are the experiences of the people who, together with the representative from the Church, inspected the house, with the purpose of easing or removing the phenomena. In this case the feeling of uneasiness was strongest in the vicinity of a large, electric motor for the fresh-air system in the attic. Especially, the representative from the Church experienced a strong feeling of uneasiness in this place. It is conceivable that there may be a causal connection — if unknown — between the form of the experience and the physical force fields that the electric motor generates.</p>
+<p><strong>Cold.</strong> Several persons experienced the sudden onset of strong, uncharacteristic cold; regardless of location in relation to natural drafts and cold sources. The phenomenon occurred regardless of the room temperature, and was limited each time to one of the many people present in the room; sometimes also to part of the person's body. On one occasion, noticeable heat was experienced when the room temperature was normal, limited to one person. Feelings of cold could also arise in some immediately before objects being thrown (the two most involved initially). The prevalence of perceived cold in the room was not investigated.</p>
+<p><strong>Advance notice.</strong> &quot;Something is going to happen right now&quot; — an experience appearing to be limited to the mental, but usually combined with bodily felt discomfort; and additionally a feeling of cold.</p>
+<p><strong>Ventilation in the room.</strong> Sensation of local airflow; aeration. The phenomenon seems to take the form of strong, local, physical movement of air (local movement of light objects is recorded in the literature).</p>
+<p><strong>Smell.</strong> Unpleasant smells were for a long time registered by several people unexpectedly, and in various places contrary to rational understanding — abruptly arising, lasting from seconds to minutes; not always experienced with the same quality by everyone present, sometimes absent for one or more people (sulphur, vinegar, ammonium chloride, cat pee, rotten smell). The experience was not correlated to any of the other phenomena. A person knew the same smell in the same place on several occasions.</p>
+<p><strong>Sound.</strong> In one of the rooms at Goliat, on several occasions, children and adults heard unidentified sounds such as bangs (in other rooms as well), crackling, weak scratching and beeping.</p>
+<p><strong>Skin affection.</strong> About halfway through the course, strong redness occurred, &quot;as with strong sunburn&quot;, in the face and exposed parts of the hands and arms of two employees. One of these was among the two most involved in the beginning. The phenomenon occurred regularly further on in the course, and varied in strength, covarying with the force and frequencies of object movements and the strength of the associated sound. Along with the strong affection of skin, the eyes also appeared as unnaturally shiny/teary in the most affected. The skin and eye affection arose after a few minutes of their engaging in physical activity in the room, lasted for a few hours after the work day had finished, and caused great discomfort for her and the other person affected. Redness and the eye affection were observed by many.</p>
+<p><strong>Tremors.</strong> In the most affected of the persons above, there also occurred strongly unpleasant, uncontrollable, powerful and symmetrical tremors of the arms. This could occur seconds ahead of the movement of objects as well as along the way, and was widely observed. The tremors seem to have covaried with the frequency and strength of object throwing in the room.</p>
+<p><strong>Visual experiences. Visions.</strong></p>
+<p>&quot;Visions&quot; of a woman and man in full figure, one of them seen blurred from the side, were observed by two of the employees during the period of the incidents. The visual experiences appeared unclear; in one case only as a silhouette.</p>
+<p><strong>Complex events</strong></p>
+<p><strong>Disappearing — reappearing.</strong> Over time, many objects were lost; after being thoroughly searched for, they were then found easily visible — the phone on the jacket is an example. The places where the objects were found are areas that had been examined earlier. The items are small — keys, children's clothing. Several of the times the object was found wrapped in other garments or placed in other unexpected places around the nursery. After the cessation of events, previously lost objects continued to be found. Children were suspected to begin with, but new examples made this almost unthinkable. Determining the cause in this case is of course especially difficult.</p>
+<div class="page"></div><!-- page break -->
+<p><strong>Pattern making.</strong> Patterns were made of different materials in the form of eg. triangle, cross, and simple compilations of simple objects. The incident that occurred first was probably a) a simple 30-40 cm long line with hooks on the end — interpreted as part of a swastika — slanted and made with chalk on two doors, b) sack-shaped figures made with chalk on doors. Several times, a triangle was made on the floor, which mainly pointed toward one room (the kitchen of the old Kindergarten). In one instance the triangle was made of skimmed milk on a painted wooden table (see picture), in a well-controlled situation: people had left the room, having the door still in view, then came back immediately after that and found the figure. The patterns were made with small and light objects (eg. feathers, paper flowers).</p>
+<p>Image D. Picture of pattern<br>
+<img src="./Images/D_TriangleOnTable.png" width="85%" style="max-width: 800px;"/></p>
+<div class="page"></div><!-- page break -->
+<p>Text in image:</p>
+<pre class="hljs"><code><div>TRIANGLE IN THE FORM OF BORDERS
+
+BORDER
+
+NOTE
+The triangle is depicted in approximately natural size; each side approximately 0.3 cm x 10-15 cm and mainly made with milk on a linoleum surface. Repeated attempts at reproduction gave somewhat broader and significantly more irregular borders.
+</div></code></pre>
+<p><strong>Sounds associated with heavier objects.</strong> A box full of toys was placed, with a loud bang, on the floor of the loft — it had not been there before. While in the bathroom, an employee heard a loud bang, as if a toy box were lifted and put down with force. Another employee was present in the room but did not observe movement of the box.</p>
+<p><strong>Door locking.</strong> One of the employees, standing a few meters away from the play sheds, was cleaning up the play equipment outside. The key for the sheds was in their pocket, and they had a view of both the house and the shed door. They then abruptly found the play sheds to be locked, which contradicted both their expectation and the situation just minutes before. The spare key was kept in the principal's office — locked. Whether the reserve key was there at the relevant time was not investigated. —All of the doors leading to three toilets inside the Kindergarten turned out to be mechanically locked in a situation where they were supposed to be open. The employee had to use a screwdriver to open the doors.</p>
+<p><strong>Mechanical movement of a tap, and more.</strong> The tap for water in the kitchen was turned to hot several times, despite being placed in the &quot;cold position&quot; immediately in advance, one person being present when this happened (movement of the tap was not observed). On several occasions, a window in the kitchen was opened right after the Kindergarten had closed for the day — with no people present (the movement was not seen). Doors give resistance when being closed, or make a very loud noise when made to close, without being connected to any people or airflow through the room.</p>
+<p><strong>Removal and retrieval of bells.</strong> The event came relatively early in the course — May 5th. A total of six people are gathered in the entryway — the cloakroom and exit area in the kindergarten. A seventh person, a male teacher, is further back in an adjoining room, near the door to the entryway (see sketch). The entryway is approximately 3.5 x 3.5 m in front, larger further back; with a large glass door in the front, and doors that go off in three different directions in the back. Over the glass exit door is mounted a small bell (sheep bell), which hits the door to make a sound when it is opened (by the piston striking the material of the watch). Right beside the door, to the left to it (as seen from the inside), there is a door to the toilet. Just inwards from this door, next to the wall, stands a smaller wheelbarrow for children. The handle is facing the door; the seat part is covered by a small sheep wool. Right next to the wheelbarrow on the right side, stands a teacher from Lalm Upbringing Center; to her right and a little behind, stands an employee of the Kindergarten. With his back to the toilet, and his face and focus directed toward the area between the exit door and the two people just mentioned, stands a third. With their back to the front door and their faces and attention mainly turned inwards, there are three other employees in the kindergarten.</p>
+<p>Image E. The situation when removing the bell<br>
+<img src="./Images/E_BellRemovalSituation.png" width="100%" style="max-width: 800px;"/><br>
+Text in image:</p>
+<pre class="hljs"><code><div>SITUATION OF REMOVAL OF BELL
+</div></code></pre>
+<p>It was afternoon, people were about to go stand and talk together. Suddenly, a key hit the glass door (exit door) from the inside and landed with a loud bang against the lattice below. It was registered at eye-height by the person closest to the wheelbarrow, by it passing her on her right side. A few seconds later, the people standing by the exit door and the other people present in the room, heard a sound from the bell — the piston against the goods — the person by the wheelbarrow heard it as short and muffled, while the people by the bathroom and front door heard it loudly and clearly &quot;... and expected the bell to fall on our heads&quot;. The people inside the room looked at the bell, the people at the door looked up — and the bell was gone. The bell had been watched during the minutes leading up to the incident. It is somewhat unclear whether everyone present heard the sound with equal clarity. Nobody had moved; nobody did move. Person number seven in the other room had potential view into the entrance area (not clear where he was at all times). The person by the wheelbarrow followed &quot;an impulse&quot;, as she expressed herself, bent down, stretched her hand out under the sheep skin — and found the bell there, in the wheelbarrow (no significant heat of the object was registered). Only a few seconds had passed — maybe up to 10 seconds from the key slamming against the door, and up to a few seconds (at most) since the noise was heard from the bell. The person who found the bell cannot explain in more detail what made her act as she did. It is noticed that several people used the word 'impulse' as part of their experience when finding objects.</p>
+<p><em>Clarification.</em> Everyone present was interviewed separately by the undersigned. There was full coincidence between the reports from the individuals. The events came as a complete surprise to everyone. It is unthinkable that &quot;anyone&quot; — person or technology — could have operated in the short time periods that are relevant, within such a limited area and within a field of vision that is essentially covered by six people at the same time. It is noted that the attention of several people was directed towards the bell by the sound it made, and they all registered that it was no longer there — but was found moments later. The bell and the sound from it were registered (as inconspicuous) immediately in advance of the relevant incident by passage of people through the door. Therefore, it is highly likely that it had been there immediately before, or during the time of the short sound. Additionally, the bell was attached with a bent hook, so that one must lay the bell horizontally before lifting it up and away from the hook. The author's attempt at reenacting this scenario showed that the chain of action could be carried out without problem — except for a somewhat loud single sound from the bell during removal and a very visible cause. In the present case, the control is the presence of people in between [the door and the wheelbarrow], and with plenty of space between and around them. The most nearby explanation — that everyone is lying — does not appear to be the most appropriate alternative, based on reasons previously discussed. One could claim that a key against the window and sound from a bell are classic magic tricks to divert attention from the central incident — the removal of the bell. The problem with the hypothesis in this case is that the localized sounds focus attention, they do not distract it. The central field of view is always covered by several people. It was not investigated whether the bell found in the carriage was identical to the bell above the door — no one thought about it. In any case, the invisible removal of the bell must be explained.</p>
+<p><strong>&quot;Materialization&quot; of a box with toys.</strong> A box containing toys abruptly appeared on the loft, visible to several people — it had not been there before; a loud sound, like when a box is placed down onto the floor.</p>
+<div class="page"></div><!-- page break -->
+<p><strong>Cessation of phenomena</strong></p>
+<p>The events ended on June 15. In the time since, missing objects have gradually come to be corrected. Apart from this, no new incidents have been recorded as of the end of October 2010.</p>
+<p>On the day in question, a &quot;clairvoyant&quot; was present in the kindergarten and performed a ritual in the presence of several of the staff [apparently two clairvoyants visited, a woman and a man — with the man, at least, visiting on June 15]. As it was conveyed, the ritual took the form of a &quot;clairvoyant&quot; detection of &quot;forces&quot;. Since there is a clear connection between the &quot;clairvoyants'&quot; presence and stopping of the incidents, two inbound and one follow-up conversations were held with them. These confirm an experience in this of &quot;contact&quot; with an active factor, and a mental and action-oriented command or urging to it/them to remove themselves from the place and move on to &quot;the other reality&quot;. There is no doubt of the &quot;clairvoyants'&quot; belief in the experiences they had. In its nature, the experiences are subjective and limited to the &quot;clairvoyants&quot;, and hence cannot be shared by the many other people who were present when they performed the rituals. Three conditions are of importance: (a) the connection in time between the &quot;clairvoyants'&quot; presence and the absence of new events afterwards, (b) several of the involved kindergarten staff were together with the man during his performance of his actions, and heard and saw what he did; hence, it is not beneficial to limit the incidents to only one person, and c) the man expressed that he experienced a mental form of contact with a causal factor he interprets and describes as personified, in accordance with his understanding and religious beliefs. Essentially, there is a coincidence between the two &quot;clairvoyants&quot; who were interviewed for points a), b) and c), but variance in their experiences of the situation and understanding of them. This applies in particular for the concretization of the way the &quot;forces&quot; were represented to each person.</p>
+<p><strong>Commencement and termination — assessment</strong></p>
+<p>Finally, let's discuss the initiation and conclusion of the events. We don't know the reasons that the phenomena in question arose in the form and time in which they did. For that we need to know more, both about the physical mechanisms that are the basis for each individual incident, and about the underlying physical reality that these are part of. Because the phenomena are primarily of a sensory, physical nature, this requirement will also apply if one searches for an understanding based on mental mechanisms in the people involved. In addition, there are no indications of mental or physical abnormalities or problems in those involved. The conclusion: The &quot;clairvoyant&quot; presence is unquestionably associated with this. — We cannot avoid listening to the claim — the obvious one: Everything ends at some point; why not at the time the &quot;clairvoyant&quot; was present? True and known. Principally, we agree. The problem in this case is the abrupt stop (not completely — missing objects have continued to show up) contradicting the build-up that had been visible over time, and the lack of effect of a similar ritual performed by a representative from the Norwegian church a short time in advance. We must find ourselves unsure of the effects and causation here.</p>
+<p><strong>Discussion</strong></p>
+<p>The Lalm observations arose and ended abruptly in their most characteristic form after 1 month. As far as one can see, the events occurred in an essentially stable situation, but with the special features mentioned. One does not find that new people came or that new things happened to the house or the surroundings. At the beginning and the first time after, the events are concentrated around two or three people; later 5-6 people. Over time though, almost all employees as well as several outsiders observed incidents to a greater or lesser extent. It has been noticed that especially three of the staff seem to have a calming effect on the events, but still experienced the phenomena sufficiently. Beyond this, one does not see a clear personal connection or pattern of persons, times and localities associated with the events. In contrast to the beginning, the ending is without a doubt related to the time and place presence of one person — the &quot;clairvoyant&quot;. The reason for this is unclear.</p>
+<p>The larger lines in the picture are as follows: After debut, the events gradually increase in frequency and intensity (speed, sound); larger objects are thrown, heat occurs in the object regardless of material and the people present, people experience discomfort to an increasing degree (feeling unwell, tiredness, headache, cold, skin affection, tremors). The contents of the events do not seem to change in a clear way, except that the patterns one saw to start with seem to be gone. Complex incidents, such as removal of the bell above the front door, happened relatively early in the process. The most common phenomenon is movement (throwing) of objects without known starting point and without sound connected (exceptions exist), with abrupt stopping and loud sounds when they hit the ground. Objects that should easily break remain intact; nor are there marks in the wall's surface after impact (walls made from wood or painted plaster). Sounds occur within the walls of one room, uncharacteristic smells arise unexpectedly with a somewhat different experience of these in the persons present; objects are searched for only to be found later, easily visible, in places which had already been examined. A strong degree of control of object movements is recorded: the &quot;dancing bottle&quot;, bubbles occuring in water at room temperature, a non-stop [ie. M&amp;M] being removed from a cupcake while in full view, a bell being removed from where it hung and most likely moved unseen through a field of view covered by several people. &quot;Visions&quot; of people are experienced.</p>
+<p>The observations of the Lalm phenomena have the following characteristics: (a) they were registered over a long duration, by two or more people at the same time, from both inside and outside the group, (b) the observers were in full physical and mental health, (c) the observations were made in a normal state of mind, and (d) they include objective as well as subjective events (the movement of objects as well as feelings of cold, gloom, headaches, etc.). Possible fabrication or imagination is discussed in the introduction and found strongly unlikely or impossible.</p>
+<p>The observations were not made in well-controlled situations of an experimental nature. It has not been practically possible. Beyond this, they fulfill reasonable requirements for validity: The observations include, for the most part, actions that were experienced by several people at the same time (movement of objects; sounds, etc.) and at the same time do not look like a technical performance or &quot;sleight of hand&quot; — ie. magic performances. The liveliness of the Kindergarten, the lack of an apparent motivation, the long time period, and the many people — different in expectations, attitude, and function — makes it very difficult to interpret the observations as anything other than expressions of real events. The solid impression the observers make as honest witnesses, and the sincerity of their belief in the reality of their own and others' observations, does not make it possible (a) to reject the entire observation series as invalid; nor (b) to exclude individual stories as too unlikely to be taken seriously. This seems especially true for the &quot;jacket with phone&quot; incident, and that of the bell being removed and transported unseen through their field of view. The option that is most in line with scientific attitude and practice, given the qualities of the Lalm observations, is to include these observations as well, and let them become part of a totality that one at best only vaguely understands. In doing so, one can contribute to the most realistic understanding of all phenomena in the long run.</p>
+<p>Assessment of the phenomena based on the degree of understanding, gives a division of the events into two categories. 1. Potentially understandable from existing scientific knowledge. 2. Not understandable at all on this basis. To each of these points we must add a note: &quot;Potentially&quot;, in this case, means guessing or hypothesis formation. &quot;Not understandable&quot; means that the models and theories one might construct for these phenomena will fall too far away from the knowledge base to be able to serve any function within the relevant framework.</p>
+<p><strong>Category 1</strong></p>
+<p>For analytical purposes, let's divide the phenomena into &quot;sensory-based&quot; and &quot;subjective&quot;. The astute reader immediately sees the problem: In the fundamental sense, all observations are &quot;subjective&quot;. Living people have observations as part of their subjective world. It is our operative base, so to say. Still: Movement of objects is sensory-based in the sense that that multiple people can share the observation at a common time. Subjective observations, on the other hand, have a smaller degree to which they're available for detection by the senses. Pain as a personal experience is one example; the experiential component of the color blue is the same. Language and shared experiences also give us access to the subjective states of others. The subjective conditions therefore become part of a continuum, where common observations of eg. the movement of objects belongs to the other extreme. For practical purposes the usage of these categories still has value.</p>
+<p>Sensory-based: Movement of objects characterized by an abrupt start, ballistic trajectory, abrupt stop, loud sound on impact, sound at the origin point, not breaking (repeating), transporting along the floor without sound (observed by one person); position effect, dancing bottle, bubbling bottle, sandal on jacket, phone on jacket, jacket up along the wall; electronic/electrical phenomena; skin effects similar to strong sunburn, blank eyes; tremors; sounds in the wall; heat generation in objects; air flow in the room.</p>
+<p>Subjective: Experiences of cold; unsettledness; warning; feeling tired; headaches; smells.</p>
+<p><strong>Category 2</strong></p>
+<p>Visions; toy box on loft; disappearance and reappearance of bell; disappearance of non-stop; abrupt stop of the phenomena; direct contact (rock; ball); locking of toy sheds; rounding of corners and movement along the corridor with clearance of obstacles; paint brush on string; creation of patterns; disappearance and reappearance of objects, sound of box against floor without observed movement (while on the toilet), locking of doors (three different toilets), mechanical movement of sink tap and windows; doors that resist closing, and closing with very loud sounds. All of these phenomena seem to fall into the category of sensory-based above, with the exception of visions and possibly the sound of the box hitting the floor (while on the toilet).</p>
+<p><strong>Category 1 phenomena — a first assessment</strong></p>
+<p><em>Generally.</em> Of the four fundamental forces of nature we know (electromagnetism, strong and weak nuclear forces, and gravity), electromagnetism is the only one relevant for analysis of the phenomena in Category 1. The strong and weak nuclear forces are excluded because these only have an effect over very small distances — as in atomic nuclei. Nor can gravity be relevant. It only works over large distances and will show variation over distances comparable to the size of the object that creates it; in this case, Earth itself. It will thus not be able to act selectively on individual objects within rooms in houses. The electromagnetic forces are what remain. This limits the explanation problem, but not enough to identify the mechanism or mechanisms underlying the movement of objects.</p>
+<p><em>Movement of objects.</em> It is known that electromagnetic forces can be quite strong, enough to move large objects (cars can be lifted with strong magnets). As the core force of the relevant incident, however, this last mechanism, the electromagnetic effect, is unlikely. Electromagnetic forces can act both as attraction and repulsion between electric charges, additionally as magnetic forces; the latter created by alternating forces between an electric current and a magnetic field. Most likely it is therefore an effect of repulsion between electrical currents which created the observed throw-like, abrupt movement of objects.</p>
+<p><em>Heating up of objects.</em> Only electrical currents, and not static charges, are able to create heat. However, it is difficult to understand how the flow of electric currents would be able to heat glass. This is an electrical insulator and will only allow very weak flows. As an alternative, it is conceivable that high-frequency electromagnetic radiation could be absorbed in the glass. Where this radiation should come from, and what creates localization of this to an object, on the other hand, is a completely open question.</p>
+<p><em>Transient change of material characteristics.</em> If one used an (unknown) mechanism capable of creating surface currents even in insulating objects of glass, wood or plastic, one would understand how there could be forces between them. Induction currents in two objects will create magnetic powers that could very well be attractive at long distances and repellent up close. The repellent forces could explain why the objects stop abruptly without being broken; the attractive forces could explain the phenomena like &quot;jacket along the wall&quot; and &quot;object against jacket&quot;. The same mechanisms could possibly be the reason behind the sound phenomena.</p>
+<p><em>Sound.</em> Sound consists of pressure waves in the air, and is created by rapid disturbances or vibrations in the air — as with a musical instrument. The sound of objects hitting is also conceivable as a result of this; alternatively that sound is generated from within the object. An abrupt change of force affecting the objects could perhaps create the bangs observed. It is difficult to see what effect would create sound directly in the air, like that of lightning strikes, unless the inductive currents create dielectric collapse in the air. In the electromagnetic context, we know that lightning strikes because the air locally and quickly turns into glowing plasma. There do not seem to have been such violent effects here because no flash of light was observed, and also because dielectric breakdown (molecules being torn from each other) will occur locally and often leave marks in the material where it happens. Dielectric breakdown, such as lightning, is associated with the discharge of electrostatic voltage fields. However, if the mechanism is induction (in which case, the currents are created by time variations in a magnetic field), the effect does not have to be a dielectric breakdown.</p>
+<p><em>Effect on person.</em> Impact on the skin like a deep sunburn, blank eyes, tiredness and headaches are registered with strong electromagnetic radiation; especially if this lasts over time. Foreshadowing, feelings of uneasiness, local cold, heat and smell are unknown as an effect of electromagnetic fields, but may nevertheless be thought to have such a cause. The same goes for the observed symmetrical tremors of both arms. Forethought and sense of horror have most likely a cause related to the brain centrally; the other conditions may be thought to have a central as well as peripheral causal starting point (musculature; peripheral parts of nerve pathways).</p>
+<p><em>Effect of person.</em> The position of the person in the room — in one direction anyway — affects the movement of objects. This phenomenon indicates an interaction between person and a spatially delimited electromagnetic field. Other mechanisms are also conceivable.</p>
+<p><em>Light being turned on; picture disappearing from an electronic camera.</em> These phenomena are also in principle available for electromagnetic understanding.</p>
+<p><em>Assessment.</em> One lacks a theory and controlled measurements for the mechanisms proposed to form the basis for any surface currents. These mechanisms will therefore have to be speculative until controlled observations and measurements are available. The assessments are nevertheless of interest, because they show that the Lalm phenomena are not necessarily physically unlikely (as certain other things are — astrology, for example). Neither do we know nature's energy sources and control mechanisms for the relevant phenomena. The status of knowledge also makes the assessment of the other Lalm phenomena (eg. &quot;bottle with bubbles&quot;; &quot;dancing bottle&quot;) too hypothetical to be of value. However, the &quot;removal of non-stop&quot; incident will still be recognized as a rare, beautiful demonstration of the degree of precision performed by the control factor.</p>
+<p><strong>Category 2 phenomena — a first assessment</strong></p>
+<p>The position obtained here, is that one must postulate a Factor X for Category 2 phenomena; ie. an unknown variable with forms of expression of the kind one sees under Category 2. We do not have enough theoretical or observational knowledge to concretize this factor's physical nature and mode of action. However, one can point out certain special features of it; each of them related to one another: Targeting (direct contact), control (precise removal of non-stop and bell; creation of patterns), adjustments/modifications (rounding of corners; change of path with magnet against child; paint brush on string), plan for actions (hiding and finding, eg. of bell; construction of patterns; locking of play shed). There can easily be made more examples of each aspect. To varying degrees, the features mentioned above are characteristics of all of the phenomena in Category 2; partly also Category 1. Most significant about the features is that they all only happen once. For example — the bell situation: Key towards entrance door, visual impression and sound; its fall, with visual impression and sound against the grate below; sound from the bell; lack of visual impression of the bell; bell seen and touched again under the sheep wool in the wheelbarrow. — We who are observers, see the incidents in a sequence that to us appear to be targeted, controlled, adapted and modified, and, along the time axis, part of what we interpret as a plan: goal achievement through adaptive actions. It is our privilege to see these contexts and evaluate, as we do, based on our own and others' experiences.</p>
+<p>It is therefore with full right that we see and characterize the phenomena as targeted, flexible and plan-driven. What we do not have the full right to do is personify Factor X and add to it our own properties. Our project must instead be to seek knowledge about this through established scientific methodology and available technical equipment. Our thoughts about content and form — our hypotheses — must be governed as far as possible by the collective, relevant knowledge and by concrete and controlled observations.</p>
+<p><strong>Interaction between Category 1 and 2 phenomena</strong></p>
+<p>Is it probable that the phenomena in the two categories have common causes or are interrelated causally? Yes, both are likely. Most likely, the Category 1 and 2 phenomena are part of the same totality with common causes. It is conceivable that the Category 1 phenomena are physical and mental (subjective) forms of expression for Factor X physics. The concrete form of expression for the Category 2 phenomena could very possibly be instrumentally dependent on Category 1 physics. Movement of objects with significant force strongly indicates that electromagnetic forces are also causally central in the Category 2 phenomenon. However, it is the subtle, adapted, adjusted and targeted control over Category 2 phenomena, along with the absence of trial and error, which makes it difficult to interpret them as an expression of the &quot;free play of forces&quot; (if it were to be physically possible). Whether this means that Factor X also represents a Physics X — we cannot know. However, it is highly likely that a possible Physics X would include additions to the physics represented in the Category 1 phenomena. Clarification of the physical nature of factor X is obviously important.</p>
+<p><strong>Effect of person</strong></p>
+<p>Such an effect is noticeable: The events were concentrated around a few people to begin with, several people probably had a calming effect, the &quot;clairvoyant&quot; is associated with the stop of the incidents, and the literature shows that the sound and object-throwing phenomena have a special connection to children and youths (Roll, 2004). (The idea of moving objects as an expression of children and young people's &quot;repressed emotions&quot; does not appear as a plausible explanation.) Most obvious: Phenomena of the kind observed here change in design and strength in the presence of people along a timeline — greater intensity over time. The implication is that there is an interaction effect between people and the phenomenon. We also see this at the level of detail: the magnet that changes path. We see it in the opposite direction as well (phenomena -&gt; person): people become affected by the phenomena in the form of eg. cold, heat, smell, and a feeling of uneasiness. We do not know the nature of this interaction effect. —The Lalm phenomena have been objectively examined to such a small degree that we do not even know for sure, on a scientific basis, if humans or animals are needed for initial manifestation; nor whether the phenomena are present in the absence of humans or animals. Such a clarification will be easy to obtain with electronic registration.</p>
+<p>In the case in question, one also saw a clear effect of the person's position on when objects were being thrown. Probably this is still a somewhat different phenomena than those mentioned above: a field effect.</p>
+<p>There is an implication that follows from what has been said so far: Is it humans who create the phenomena? They seem to happen among us; could it be that we, as individuals or in groups, have a causal role in their creation — not just in their manifestation? Causal role specified: Can we — one or more at the same time — influence the position and characteristics of an object through thinking about it, without physical aids between us and the object? Essential phenomenon: Moving an object visible to several people.</p>
+<p>The answer is almost certainly no. A lot of time and effort was spent in the past to answer the question. Psychokinesis is the term that was used to describe the influencing of object positions, and it's still called that to this day. In the best case scenario, the answer was uncertain. The best and most scientifically designed is the research series conducted over close to 30 years at Princeton University, New Jersey (Jahn, et al., 1997). They found a weak effect on movements of very small objects and elementary particles in the form of deviations from a random distribution in large experimental series. The effect is too small, by a large margin, for it to explain the Lalm phenomena. One has also examined the effect of larger groups of people in joint commitment. The results of these are statistically significant, but open to several interpretations (Radin, 2006). In any case, these observations are too far off in form and content from the Lalm phenomena to have relevance.</p>
+<p>The most relevant research literature shows that we cannot move objects through &quot;the power of the will&quot;. An interaction effect appears to be there though, so we are wise to reserve consideration of our role in the form and content of the phenomena.</p>
+<p><strong>Norwegian kindergartens</strong></p>
+<p>In recent years, Norwegian Kindergartens have also been an arena for similar events as at Lalm; Bymyra Kindergarten, Tromsø (Nordlys.no, published 16.03.07); a Kindergarten in Ålesund (mentioned without name, journalist Mona Skjong, Sunnmørsposten, 22.03.10); and a third Kindergarten which so far has not been published (e-mail from a parent, 12.06.10). Most characteristic and common for all the Kindergartens are repeated experiences in children and adults of seeing people who give the impression of having a connection to the place from before (visions).</p>
+<p>For children, this includes hearing sounds as well (&quot;... old lady, so sad ... crying&quot;; personal interview with the person responsible at Bymyra Kindergarten, 23.09.10). Adults additionally experience discomfort, mental heaviness and subjective inhibition in daily activities.</p>
+<p><strong>Summary and assessment</strong></p>
+<p>The data basis for the Lalm phenomena is observations made by employees and children in Lalm Upbringing Center (first and foremost Department Kindergarten), relatives of them, representatives from Våga County and others in the time period between 26th April and 15th June 2010. For the majority of the events, two or more people observed the incidents simultaneously. These observations were partly documented through pictures taken by the employees, written notes made during the course, and interviews with the observers performed by the author from 26th June to September 2010. The information has been checked for correct understanding through cross-interviews with the informants, and finally a read through of the report by those responsible for Lalm Upbringing Center and Department Kindergarten.</p>
+<p>Lalm phenomena primarily include the movement of objects in the presence of several people, but also pattern-laying and other complex phenomena. Characteristically, the incidents were repeatedly observed by several people at the same time. Psychopathology is not registered with the observers. These include staff in the nursery as well as outsiders. Phenomena appear to have arisen abruptly without a definite connection to persistent or new features in the physical or mental environment. They also abruptly ceased, associated with the presence of a &quot;clairvoyant&quot;. By having lasted for one and a half months, with development from relatively simple to more complex and powerful forms of expression, the Lalm phenomena include an unusual wealth of conditions. A similarly thoroughly documented and detailed representation of this type of phenomena is not known to the author from the collected literature. One shortcoming in this context is that the phenomena could not be further documented through the use of technical aids; eg. for registration of electromagnetic fields. Nevertheless, the quality of the observations gives confidence in the validity of them.</p>
+<p>In their simpler expressions, the phenomena appear as probable expressions of electromagnetic forces. The expression they get here is unknown from experimental literature and from observations elsewhere in nature. This applies to throw-like movements, abrupt stop on impact, absence of damage to breakable material, effects on people, sound, etc. In the transition from the simpler to the more complex forms of expression, a need arises to understand the modifiable, goal-directed control shown. These aspects of the forms of expression are also not to be found in other contexts of nature. These aspects cannot be understood from simple models of electromagnetic forces in action. In its whole, there seems to be a complex, controlled nature of the phenomena to be exclusively associated with humans, which arise as an interaction between our physical and mental life, and certain aspects of the physical nature around us. Our physics in this context also involves the physical and physiological basis of our subjective understandings; the quality (&quot;qualia&quot;) aspect of our consciousness. Regarding to what extent the complex control that appears in the physical phenomena outside us is associated with mental processes in humans, we know nothing about. The observations and experimental data presented, however, make it unlikely that the manifestation of the complex phenomena is entirely causally dependent on humans. Observations from spontaneous situations rather point to a physically independent status of this factor, but with an adapted design that depends on a biological factor.</p>
+<p>Observations from spontaneous situations in the literature coincide with the Lalm phenomena (eg. Spencer, 1997; Roll, 2004; Rosenheim Poltergeist. Wikipedia, 2010). The total amount of observation is extensive in content, time, city, culture and geographical locality. There is insufficient basis to interpret the vast majority of observations as expressions of deception, psychosis, or other forms of psychopathology. These are obvious features of non-serious contributions. Overall, there is a basis for assessing the Lalm observations and correspondingly well-documented observations as physically real. The implication is that the phenomena are owed a scientific explanation of their nature. It is highly likely that such clarification will open doors leading to a more fundamental understanding of key aspects of our own nature, as well as the nature surrounding us.</p>
+<div class="page"></div><!-- page break -->
+<p><strong>Literature</strong></p>
+<p>The relevant literature can be small or large, depending on the criteria for delimitation. For the current purpose — detection of similar observations elsewhere and at other times — the following are considered sufficient.</p>
+<p>Bender, H. (1968). &quot;The Rosenheim Spook - A Case of Spontaneous Psychokinesis&quot;, in: <em>Journal of Parapsychology and Frontiers of Psychology 11:</em> 104-112. (Rosenheim Poltergeist. Wikipedia.)</p>
+<p>Houran, J. Lange, R. (2008). Hauntings and Poltergeists: Multidisciplinary Perspective. Amazon.</p>
+<p>Hubbel, W. (1882). The Haunted House: A True Ghost Story. The great Amherst mystery. (Great Amherst Mystery. Wikipedia.)</p>
+<p>Jahn, RG Dunne, BJ Nelson, RD Dobyns, YH and Bradish, GJ (1997). Correlations of Random Binary Sequences with Pre-Stated Operator Intention: A Review of a 12-Year Program. <em>Journal of Scientific Exploration</em>, Vol. 11, no. 3, pp. 345- 367. (Link to comprehensive literature: Princeton Engineering Anomalies Research.html.)</p>
+<p>Playfair, GL &amp; Grosse, M. (1988). &quot;Enfield revisited: The evaporation of positive evidence&quot;. <em>Journal of the Society for Psychical Research</em>, 55: 208-219. (Enfield Poltergeist. Wikipedia.)</p>
+<p>Radin, D. (2006). Entangled minds. Simon and Scuster (Pocket Books).</p>
+<p>Roll, WG (2004). The Poltergeist. Amazon.</p>
+<p>Spencer, J. &amp; A. (1997). The Poltergeist Phenomenon. London. (Amazon).</p>
+
+</body>
+</html>
